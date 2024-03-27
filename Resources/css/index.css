@@ -1,0 +1,65 @@
+p {
+    text-align: center;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    color: #438FC6;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+div {
+    text-align: center;
+}
+
+.card {
+    text-align: center;
+    background-color: #438FC6;
+    color: white;
+    text-decoration:underline;
+    font-weight: bold;
+    font-size: larger;
+    width: fit-content;
+    height: max-content;
+    padding: 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+.card:hover{
+    font-weight: bold;
+}
+
+.cards{
+    column-count: 2;
+}
+
+.back{
+    text-align: center;
+    align-self: center;
+    background-color: #438FC6;
+    color: white;
+    width: fit-content;
+    height: max-content;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+.back:hover{
+    font-weight: bold;
+    
+}
+
+form {
+    text-align: center;
+}
+
+label{
+    padding-top: 10px;
+}
