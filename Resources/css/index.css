@@ -31,8 +31,12 @@ div {
     border: none;
 }
 
-.card:hover{
-    font-weight: bold;
+button:disabled{
+    opacity: 0.3;
+}
+
+.card:hover:active{
+    transform: scale(1.2);
 }
 
 .cards{
