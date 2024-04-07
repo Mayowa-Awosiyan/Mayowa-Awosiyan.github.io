@@ -11,5 +11,6 @@ function enableCardButtons() {
 
 // Event listener for the consent button click
 consentButton.addEventListener("click", function () {
+  //TODO add a modal showing terms and conditions with an accept and decline option
   enableCardButtons();
 });

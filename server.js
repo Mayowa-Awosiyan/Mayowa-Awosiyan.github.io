@@ -7,8 +7,8 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.post("/sendConfirmationEmail", (req, res) => {
-  const { fname, email, availability } = req.body;
-
+  const { email, fname, availability } = req.body;
+  console.log("REACHED FUCNTION");
   const msg = {
     to: email, // Change to your recipient
     from: "surrogateavatar@outlook.com", // Change to your verified sender
