@@ -5,10 +5,8 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
-
-app.post("/sendConfirmationEmail", (req, res) => {
-  const { email, fname, availability } = req.body;
-  console.log("REACHED FUCNTION");
+export function createEmail(email, fname, availability) {
+  console.log(availability);
   const msg = {
     to: email, // Change to your recipient
     from: "surrogateavatar@outlook.com", // Change to your verified sender
@@ -35,8 +33,14 @@ app.post("/sendConfirmationEmail", (req, res) => {
       console.error(error);
       res.status(500).json({ error: "Failed to send email" });
     });
-});
+}
 
+//createEmail("oawos064@uottawa.ca", "Mayowa");
+/*app.post("/sendConfirmationEmail", (req, res) => {
+  const { email, fname, availability } = req.body;
+  console.log("REACHED FUCNTION");
+});
+*/
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
