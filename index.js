@@ -24,3 +24,11 @@ consentButton.addEventListener("click", function () {
     disableCardButtons();
   }
 });
+//Event listener for profile widget to expose dropdown menu
+document
+  .querySelector(".profile-widget")
+  .addEventListener("click", function () {
+    var dropdown = this.querySelector(".dropdown-menu");
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  });
