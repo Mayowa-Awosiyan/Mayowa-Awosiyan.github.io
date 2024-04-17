@@ -1,9 +1,12 @@
 body {
     font-family: "Work Sans", sans-serif;
+    line-height: 1.4;
 }
 p {
     text-align: center;
     color: black;
+    padding: 0 10px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -40,6 +43,7 @@ button:disabled{
 
 .card:hover:active{
     transform: scale(1.2);
+    
 }
 
 .cards{
