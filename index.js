@@ -10,11 +10,13 @@ import {
 
 const auth = getAuth();
 const provider = new OAuthProvider("microsoft.com");
-// Grab the consent button and buttons with the card class
+
+// Grab parts of the page for future reference
 const consentButton = document.getElementById("consentbtn");
 const cardButtons = document.querySelectorAll(".card");
 const loginbtn = document.getElementById("UoLogin");
 const logoutbtn = document.getElementById("logoutbtn");
+
 //This should make it so only uottawa associated accounts can use the service
 //Tenant ID can be found in azure by using a Uottawa account
 /*
@@ -31,38 +33,22 @@ provider.setCustomParameters({
 });
 
 loginbtn.addEventListener("click", function () {
-  console.log("Login in Clicked");
-  /*signInWithPopup(auth, provider)
-    .then((result) => {
-      // User is signed in.
-      // IdP data available in result.additionalUserInfo.profile.
-
-      // Get the OAuth access token and ID Token
-      console.log(result);
-      const credential = OAuthProvider.credentialFromResult(result);
-      const accessToken = credential.accessToken;
-      const idToken = credential.idToken;
-    })
-    .catch((error) => {
-      // Handle error.
-      console.log(error);
-    });
-    */
-
   signInWithPopup(auth, provider)
     .then((result) => {
       // User is signed in.
       // IdP data available in result.additionalUserInfo.profile.
-      console.log(result, "THAT's ALL FOLKS");
-
       // Get the OAuth access token and ID Token
       const credential = OAuthProvider.credentialFromResult(result);
       const accessToken = credential.accessToken;
       const idToken = credential.idToken;
+      const user = result.user;
+      console.log(user);
+
+      const displayName = user.displayName;
+      document.getElementById("currUserName").textContent = displayName;
     })
     .catch((error) => {
       // Handle error.
-      console.log("SO CLOSE!!");
       console.log(error);
     });
 });
@@ -74,13 +60,16 @@ logoutbtn.addEventListener("click", function () {
     .then(() => {
       // Sign-out successful.
       console.log("USER LOGGED OUT");
+      //Reset the username in the top right corner
+      document.getElementById("currUserName").textContent = "Welcome!";
     })
     .catch((error) => {
       // An error happened.
+      console.log(error);
     });
 });
 
-// Function to enable card buttons
+// Functions to enable/disable card buttons
 function enableCardButtons() {
   cardButtons.forEach((button) => {
     button.disabled = false;
