@@ -31,6 +31,20 @@ div {
     border: none;
 }
 
+.login{
+    padding: 10px;
+    
+}
+
+button.login {
+    padding: 10px;
+    border-radius:  10px;
+    text-align: center;
+    background-color: #438FC6;
+    color: white;
+    border: none;
+}
+
 button:disabled{
     opacity: 0.3;
 }
