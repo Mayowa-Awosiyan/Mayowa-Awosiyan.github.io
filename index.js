@@ -25,12 +25,12 @@ provider.setCustomParameters({
 });
 */
 
-//provider.addScope("calendars.read");
-//provider.addScope("calendars.write");
-
 provider.setCustomParameters({
   prompt: "consent",
 });
+//add the additional permisions to email a user and update their calendar
+provider.addScope("email");
+provider.addScope("Calendars.ReadWrite");
 
 loginbtn.addEventListener("click", function () {
   signInWithPopup(auth, provider)
