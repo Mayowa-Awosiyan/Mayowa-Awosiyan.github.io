@@ -6,11 +6,11 @@
     <title>Surrogate Avatar Portal</title>
     <div class="profile-widget">
         <img src="Resources/images/blank avatar.jpg" alt="User Avatar">
-        <span class="username">Welcome!</span>
+        <span class="username" id="currUserName">Welcome!</span>
         <div class="dropdown-menu">
             <a href="#">Profile</a>
             <a href="#">Settings</a>
-            <a href="#">Logout</a>
+            <a href="#" id="logoutbtn">Logout</a>
         </div>
     </div>
 </head>
@@ -33,8 +33,11 @@
         <p>By checking the following box you consent to the <a href="/terms.html">terms and conditions</a> of using
             the Surrogate Avatar
             Experience.</p>
-        <input type="checkbox" id="consentbtn" value="Agree"></input> <label>I Agree to the Terms and Conditions</label>
+        <input type="checkbox" id="consentbtn" value="Agree"></input> <span>I Agree to the Terms and
+            Conditions</span>
     </div>
+
+    <div class="login"><button id="UoLogin" class="login">Login to Uottawa account</button></div>
 
     <div class="cards">
         <a href="/register.html"> <button disabled class="card">Become an Avatar!</button></a>
@@ -55,7 +58,7 @@
             entirely volunteer-driven project, and requires consent of all volunteers before proceeding.</p>
     </div>
 
-    <script src="index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
