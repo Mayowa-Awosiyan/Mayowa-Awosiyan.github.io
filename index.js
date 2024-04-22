@@ -1,5 +1,7 @@
 //firebase login
 import { app } from "./firebaseconfig.js";
+//import the microsoft Graph API
+import { Client } from "@microsoft/microsoft-graph-client";
 import {
   getAuth,
   signInWithPopup,
@@ -46,12 +48,53 @@ loginbtn.addEventListener("click", function () {
 
       const displayName = user.displayName;
       document.getElementById("currUserName").textContent = displayName;
+      getAuthenticatedClient(accessToken);
+      createEvent(accessToken);
     })
     .catch((error) => {
       // Handle error.
       console.log(error);
     });
 });
+
+function getAuthenticatedClient(accessToken) {
+  // Initialize the Graph client
+  return Client.init({
+    authProvider: (done) => {
+      done(null, accessToken); // First parameter takes an error if you can't get an access token
+    },
+  });
+}
+
+async function createEvent(accessToken) {
+  const client = getAuthenticatedClient(accessToken);
+  const event = {
+    subject: "Meeting",
+    body: {
+      contentType: "HTML",
+      content: "Discuss project updates",
+    },
+    start: {
+      dateTime: "2024-05-01T12:00:00",
+      timeZone: "Pacific Standard Time",
+    },
+    end: {
+      dateTime: "2024-05-01T13:00:00",
+      timeZone: "Pacific Standard Time",
+    },
+    location: {
+      displayName: "Conference Room",
+    },
+  };
+
+  try {
+    const response = await client.api("/me/events").post(event);
+    console.log("Event created", response);
+  } catch (error) {
+    console.error("Could not create event", error);
+  }
+}
+
 //Logout the current user when the log out button is clicked
 logoutbtn.addEventListener("click", function () {
   const auth = getAuth();
