@@ -8,19 +8,19 @@ app.use(bodyParser.json());
 export function createEmail(email, fname, availability) {
   console.log(availability);
   const msg = {
-    to: email, // Change to your recipient
-    from: "surrogateavatar@outlook.com", // Change to your verified sender
-    subject: "Availability Confirmation",
+    to: email, // The current user's email address
+    from: "surrogateavatar@outlook.com", // The verified sender setup on the SendGrid website
+    subject: "Availability Confirmation", // The email subject line
     text:
       "Hello " +
       fname +
       "! This email is to confirm that you are registered as a Surrogate avatar that is available at " +
       availability +
-      ". If this time is incorrect please go back to the web page and change your start time",
+      ". If this time is incorrect please go back to the web page and change your start time", // The text of the email
     html:
       "<strong>This email is to confirm that you are registered as a Surrogate avatar that is available at " +
       availability +
-      ". If this time is incorrect please go back to the web page and change your start time</strong>",
+      ". If this time is incorrect please go back to the web page and change your start time</strong>", // The HTML of the email
   };
 
   sgMail

@@ -1,7 +1,7 @@
 //firebase login
 import { app } from "./firebaseconfig.js";
 //import the microsoft Graph API
-import { Client } from "@microsoft/microsoft-graph-client";
+import { Client } from "./node_modules/@microsoft/microsoft-graph-client";
 import {
   getAuth,
   signInWithPopup,
